@@ -3,13 +3,17 @@ const express = require('express');
 const routers = require('./routers') // ./ para avisar que eh uma arquivo e nao um pacote como o express
 const cors = require('cors');//modulo de seguranca
 const app = express(); //criando a aplicacion
+const {errors} = require('celebrate');
 
 app.use(cors());
 app.use(express.json());// avisando que usa o formato json
 app.use(routers); //importante q esse código vá abajo de express.json
-app.listen(3333); // mandar a aplicacao ouvir a porta 3333
+app.use(errors());
 
 
+//app.listen(3333); // mandar a aplicacao ouvir a porta 3333
+
+module.exports = app;
 /*
 Metodos HTTP
 GET: buscar uma informacao do backend

@@ -13,6 +13,17 @@ module.exports = {
     useNullAsDefault: true,
   },
 
+  test: {
+    client: 'sqlite3',
+    connection: {
+      filename: './src/database/test.sqlite' //valor padrao que veio ./dev.sqlite3 pasta database criada
+    },
+    migrations: {
+      directory: './src/database/migrations' //localizacao da pasta migration criada
+    },
+    useNullAsDefault: true,
+  },
+
   
 
   

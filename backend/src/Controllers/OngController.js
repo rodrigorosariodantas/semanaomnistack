@@ -1,4 +1,4 @@
-const crypto = require('crypto'); //eh um apcote do node para crear numeros aleatorios
+const generateUniqueId = require('../utils/generateUniqueId');
 const connection = require('../database/conection')//importando
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     async create(request, response) {
         const { name, email, whatsapp, city, uf } = request.body;
     
-        const id = crypto.randomBytes(4).toString('HEX'); //numero aleatorio com 4 numeros transformado em string hexadecimal
+        const id = generateUniqueId(); //numero aleatorio com 4 numeros transformado em string hexadecimal
     
         await connection('ongs').insert( { 
             id,
